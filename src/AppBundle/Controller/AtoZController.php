@@ -13,9 +13,6 @@ class AtoZController extends Controller
      */
     public function indexAction(Request $request, $letter)
     {
-        // echo '<pre>';
-        // print_r($letter);
-        // echo '<pre>';
         // replace this example code with whatever you need
         return $this->render('atoz/index.html.twig', array(
             'testing' => 'tested',

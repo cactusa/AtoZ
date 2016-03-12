@@ -10,33 +10,33 @@
 !var/cache/.gitkeep
 !var/logs/.gitkeep
 
-# Parameters
-/app/config/parameters.yml
-/app/config/parameters.ini
+; # Parameters
+; /app/config/parameters.yml
+; /app/config/parameters.ini
 
-# Managed by Composer
-/app/bootstrap.php.cache
-/var/bootstrap.php.cache
-/bin/*
-!bin/console
-!bin/symfony_requirements
-/vendor/
+; # Managed by Composer
+; /app/bootstrap.php.cache
+; /var/bootstrap.php.cache
+; /bin/*
+; !bin/console
+; !bin/symfony_requirements
+; /vendor/
 
-# Assets and user uploads
-/web/bundles/
-/web/uploads/
+; # Assets and user uploads
+; /web/bundles/
+; /web/uploads/
 
-# Assets managed by Bower
-/web/assets/vendor/
+; # Assets managed by Bower
+; /web/assets/vendor/
 
-# PHPUnit
-/app/phpunit.xml
-/phpunit.xml
+; # PHPUnit
+; /app/phpunit.xml
+; /phpunit.xml
 
-# Build data
-/build/
+; # Build data
+; /build/
 
-# Composer PHAR
-/composer.phar
+; # Composer PHAR
+; /composer.phar
 
 stuff.txt
