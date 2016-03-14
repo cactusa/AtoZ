@@ -13,11 +13,31 @@ class AtoZController extends Controller
      */
     public function indexAction(Request $request, $letter)
     {
-        $response = $this->get("http")->performRequest("www.something.com");
+        $response = $this->get("http")->performRequest("ibl.api.bbci.co.uk/ibl/v1/atoz/" . $letter . "/programmes?page=1");
+//        echo '<pre>';
+//        print_r($response);
+//        echo '<pre>';
+
+        $letters = array('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0-9');
+
+        $url = array();
+        foreach ($letters as $item) {
+            $url[] = $this->generateUrl(
+                'A to Z listing',
+                array('letter' => $item)
+            );
+        };
+
+        echo '<pre>';
+        print_r($url);
+        echo '<pre>';
 
         return $this->render('atoz/index.html.twig', array(
-            'testing' => $response,
-            'letter' => $letter
+            'letter' => $letter,
+            'navigation' => array(
+                'letter' => $letters,
+                'link'   => $url
+            ),
         ));
     }
 }

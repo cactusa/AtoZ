@@ -1,9 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div>
-        Testing this thing some more.<br/>
-        <b>{{ testing }}</b><br/>
-        <b>{{ letter }}</b>
+    <div class="content">
+        <ul>
+            {% for item in navigation %}
+            <li><a href="{{ item.link }}">{{ item.letter }}</a></li>
+            {% endfor %}
+        </ul>
+        <h1>This is an A to Z listing of programmes</h1>
+        <h2>{{ letter }}</h2>
     </div>
 {% endblock %}
