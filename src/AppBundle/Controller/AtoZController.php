@@ -2,9 +2,9 @@
 
 namespace AppBundle\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+//use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
+//use Symfony\Component\HttpFoundation\Request;
 
 class AtoZController extends Controller
 {
@@ -13,9 +13,10 @@ class AtoZController extends Controller
      */
     public function indexAction(Request $request, $letter)
     {
-        // replace this example code with whatever you need
+        $response = $this->get("http")->performRequest("www.something.com");
+
         return $this->render('atoz/index.html.twig', array(
-            'testing' => 'tested',
+            'testing' => $response,
             'letter' => $letter
         ));
     }
