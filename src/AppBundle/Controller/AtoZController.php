@@ -20,24 +20,21 @@ class AtoZController extends Controller
 
         $letters = array('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0-9');
 
-        $url = array();
+        $links = array();
         foreach ($letters as $item) {
-            $url[] = $this->generateUrl(
+            $links[$item] = $this->generateUrl(
                 'A to Z listing',
                 array('letter' => $item)
             );
         };
 
-        echo '<pre>';
-        print_r($url);
-        echo '<pre>';
+//        echo '<pre>';
+//        print_r($links);
+//        echo '<pre>';
 
         return $this->render('atoz/index.html.twig', array(
             'letter' => $letter,
-            'navigation' => array(
-                'letter' => $letters,
-                'link'   => $url
-            ),
+            'links' => $links
         ));
     }
 }

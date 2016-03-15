@@ -3,8 +3,8 @@
 {% block body %}
     <div class="content">
         <ul>
-            {% for item in navigation %}
-            <li><a href="{{ item.link }}">{{ item.letter }}</a></li>
+            {% for key,val in links %}
+            <li><a href="{{ val }}">{{ key }}</a></li>
             {% endfor %}
         </ul>
         <h1>This is an A to Z listing of programmes</h1>
