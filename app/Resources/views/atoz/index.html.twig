@@ -1,13 +1,28 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="content">
-        <ul>
+    <div class="container">
+        <h1>This is an A to Z listing of programmes</h1>
+        <ul class="navigation">
             {% for key,val in links %}
-            <li><a href="{{ val }}">{{ key }}</a></li>
+            <li><a href="{{ val }}" class="navigation__item btn btn-lg btn-link">{{ key }}</a></li>
             {% endfor %}
         </ul>
-        <h1>This is an A to Z listing of programmes</h1>
-        <h2>{{ letter }}</h2>
+
+        <h2>Current letter: {{ letter }}</h2>
+
+        <ul class="azlist">
+            {% for key,val in items %}
+            <li class="azlist__item">
+                <picture>
+                    <source media="(min-width: 1200px)" srcset="{{ val.large }}">
+                    <source media="(min-width: 992px)" srcset="{{ val.medium }}">
+                    <source media="(min-width: 768px)" srcset="{{ val.small }}">
+                    <img src="{{ val.small }}" class="img-thumbnail" alt=""/>
+                </picture>
+                <h3>{{ key }}</h3>
+            </li>
+            {% endfor %}
+        </ul>
     </div>
 {% endblock %}
