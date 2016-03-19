@@ -5,11 +5,11 @@
         <h1>This is an A to Z listing of programmes</h1>
         <ul class="navigation">
             {% for key,val in links %}
-            <li><a href="{{ val }}" class="navigation__item btn btn-lg btn-link">{{ key }}</a></li>
+            <li><a href="{{ val }}" class="navigation__item btn btn-lg btn-link">{{ key | upper }}</a></li>
             {% endfor %}
         </ul>
 
-        <h2>Current letter: {{ letter }}</h2>
+        <h2>Current letter: <b>{{ letter | upper }}</b></h2>
 
         <ul class="azlist">
             {% for key,val in items %}
@@ -23,6 +23,14 @@
                 <h3>{{ key }}</h3>
             </li>
             {% endfor %}
+        </ul>
+
+        <ul class="pagination">
+            {% if pages.prev != false %}<li><a href="{{ pages.prev }}">Prev</a></li>{% endif %}
+            {% for key,val in pages.list %}
+                <li><a href="{{ val }}" class="navigation__item btn btn-lg btn-link">{{ key }}</a></li>
+            {% endfor %}
+            {% if pages.next != false %}<li><a href="{{ pages.next }}">Next</a></li>{% endif %}
         </ul>
     </div>
 {% endblock %}
