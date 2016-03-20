@@ -13,3 +13,8 @@ How to run
  * Uncomment and change the date.timezone value to equal "Europe/London", then save and exit
 * Run php app/console server:run
 * Open http://127.0.0.1:8000/a-z/a in a browser
+
+
+Or
+
+* Open http://symfony-cactusa.c9users.io/web/app_dev.php/a-z/a
