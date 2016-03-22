@@ -15,6 +15,12 @@ How to run
 * Open http://127.0.0.1:8000/a-z/a in a browser
 
 
-Or use the cloud hosted version:
+Or use the cloud hosted version (only for seing the page):
 --------------
 * Open at http://symfony-cactusa.c9users.io/web/app_dev.php/a-z/a
+
+Tets:
+--------------
+* To execute the tests you will need [composer](https://getcomposer.org/) installed.
+* Go to the project root folrder and run the following command to run both unit and functional tests: vendor/symfony/symfony/phpunit -c app 
+* Note: The tests are based of the live feed and are likely to fail if the state of the feed changes. Ideally a mock webservice would be used instead in order to provide reliable test results.
