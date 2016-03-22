@@ -19,7 +19,7 @@ Or use the cloud hosted version (only for seing the page):
 --------------
 * Open at http://symfony-cactusa.c9users.io/web/app_dev.php/a-z/a
 
-Tets:
+Tests:
 --------------
 * To execute the tests you will need [composer](https://getcomposer.org/) installed.
 * Go to the project root folrder and run the following command to run both unit and functional tests: vendor/symfony/symfony/phpunit -c app 
