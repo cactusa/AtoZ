@@ -13,13 +13,8 @@ class AtoZController extends Controller
      */
     public function indexAction(Request $request, $letter)
     {
-        $page = empty($request->query->get('page')) ? 1 : $request->query->get('page');
-//        echo '<pre>';
-//        print_r($page);
-//        echo '</pre>';
-
-//        $response = $this->get("http")->performRequest("ibl.api.bbci.co.uk/ibl/v1/atoz/" . $letter . "/programmes?page=1");
-        $items = $this->get("http")->getProgrammeList($letter, $page);
+        $pageNumber = empty($request->query->get('page')) ? 1 : $request->query->get('page');
+        $items = $this->get("http")->getProgrammeList($letter, $pageNumber);
         $numberOfPages = $items['pages'];
         unset($items['pages']);
 
@@ -33,9 +28,9 @@ class AtoZController extends Controller
             );
         };
 
-        $pageLinks = array();
+        $pageNumberLinks = array();
         for ($i = 1 ; $i <= $numberOfPages ; $i++) {
-            $pageLinks[$i] = $this->generateUrl(
+            $pageNumberLinks[$i] = $this->generateUrl(
                 'A to Z listing', array(
                     'letter' => $letter,
                     'page' => $i,
@@ -46,14 +41,14 @@ class AtoZController extends Controller
         $prev = $this->generateUrl(
             'A to Z listing', array(
             'letter' => $letter,
-            'page' => $page-1,
+            'page' => $pageNumber-1,
             )
         );
 
         $next = $this->generateUrl(
             'A to Z listing', array(
             'letter' => $letter,
-            'page' => $page+1,
+            'page' => $pageNumber+1,
             )
         );
 
@@ -62,9 +57,9 @@ class AtoZController extends Controller
             'links' => $links,
             'items' => $items,
             'pages' => array(
-                'list' => $pageLinks,
-                'prev' => $page <= 1 ? false : $prev,
-                'next' => $page >= $numberOfPages ? false : $next,
+                'list' => $pageNumberLinks,
+                'prev' => $pageNumber <= 1 ? false : $prev,
+                'next' => $pageNumber >= $numberOfPages ? false : $next,
             ),
         ));
     }

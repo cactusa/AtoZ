@@ -11,6 +11,7 @@
 
         <h2>Current letter: <b>{{ letter | upper }}</b></h2>
 
+        {% if items != false %}
         <ul class="azlist">
             {% for key,val in items %}
             <li class="azlist__item">
@@ -24,6 +25,9 @@
             </li>
             {% endfor %}
         </ul>
+        {% else %}
+        <p class="message">Sorry, there are no programmes under this letter.</p>
+        {% endif %}
 
         <ul class="pagination">
             {% if pages.prev != false %}<li><a href="{{ pages.prev }}">Prev</a></li>{% endif %}
